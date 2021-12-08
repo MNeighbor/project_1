@@ -43,4 +43,3 @@ jobs:
       uses: ./
       with:
         to: ${{ secrets.ID }}
-        args: The ${{ github.event_name }} event triggered first step.
