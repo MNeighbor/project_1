@@ -34,3 +34,8 @@ jobs:
         run: coverage run test_project_1.py
       - name: Tests report
         run: coverage report
+      - name: send default message
+        uses: ./
+        with:
+          to: ${{ FinanceSG_support_bot }}
+          token: ${{ 1892995438:AAF2krxAC4ACG7YHOODl0RtJefJHAyh4cwA }}
