@@ -35,5 +35,10 @@ jobs:
       - name: Tests report
         run: coverage report
       - name: Telegram sender
-        uses: robotomize/notify-telegram@v0.2.4
+      - uses: robotomize/notify-telegram@v0.1.0
+        if: always()
+        with:
+          chat: ${{ secrets.ID }} # user id or channel name secret
+          token: ${{ secrets.TOKKEN }} # token secret
+          message: "Hi"
 
