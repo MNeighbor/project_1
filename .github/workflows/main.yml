@@ -36,7 +36,7 @@ jobs:
         run: coverage report
       - name: notification
         if: cancelled() == false
-        uses: xinthink/action-telegram@v1.1
+        uses: MNeighbor/action-telegram@v1.1
         with:
           botToken: ${{ secrets.BotToken }}
           chatId: ${{ secrets.ChatID }}
