@@ -14,7 +14,7 @@ class ProjectTest(unittest.TestCase):
     def test_max_numeric(self):
         """Функция находящая максимальное значение работает правильно?"""
         new_value = project_1.max_numeric(['1', '4', '2', '3'])
-        self.assertEquals(new_value, 4.0)
+        self.assertEquals(new_value, 4)
 
     def test_sum_numeric(self):
         """Функция находящая сумму чисел работает правильно?"""
