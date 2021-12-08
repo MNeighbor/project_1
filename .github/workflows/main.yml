@@ -34,3 +34,6 @@ jobs:
         run: coverage run test_project_1.py
       - name: Tests report
         run: coverage report
+      - name: Telegram sender
+        uses: robotomize/notify-telegram@v0.2.4
+
