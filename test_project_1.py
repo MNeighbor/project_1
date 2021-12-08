@@ -31,4 +31,5 @@ class ProjectTest(unittest.TestCase):
         new_value = project_1.mult_numeric(math.inf)
         self.assertEquals(new_value, "Бесконечность!")
 
-
+if __name__ == '__main__':
+    unittest.main()
