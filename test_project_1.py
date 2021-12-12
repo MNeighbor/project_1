@@ -29,7 +29,7 @@ class ProjectTest(unittest.TestCase):
     def test_mult_numeric_overflow(self):
         """На вход подается бесконечность, программа при этом работает?"""
         new_value = project_1.mult_numeric(math.inf)
-        self.assertEquals(new_value, "Бесконечность!")
+        self.assertEquals(new_value, float("inf"))
 
 if __name__ == '__main__':
     unittest.main()
