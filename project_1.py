@@ -1,11 +1,20 @@
 import time
+import typing
 
-l = []
-# Прочитаем исходные данные из файла
-with open("project_1.txt", encoding="utf8") as f:
-    # Чтение данных происходит построчно
-    for line in f:
-        l.append(line.replace("\n", "").split())
+
+# Реализовать чтение данных из файла именно как функцию
+# Функция, читающая файл
+
+
+def read_file():
+    # Пустой список куда данные будут заноситься построчно
+    l = []
+    # Прочитаем исходные данные из файла
+    with open("project_1.txt", encoding="utf8") as f:
+        # Чтение данных происходит построчно
+        for line in f:
+            l.append(line.replace("\n", "").split())
+    return l
 
 
 # Тестирование времени работы программы
@@ -57,11 +66,12 @@ def sum_numeric(args):
     return result
 
 
+# Лучше возвращать Optional[float], нежели строку в случае переполнения
 @timer
-def mult_numeric(args):
+def mult_numeric(args: typing.Optional[float]):
     result = 1
     if args == float("inf"):
-        return "Бесконечность!"
+        return args
     for numeric in args:
         for i in numeric:
             try:
@@ -69,13 +79,13 @@ def mult_numeric(args):
             except OverflowError:
                 print("Бесконечность!")
     if result == float("inf"):
-        return "Бесконечность!"
+        return result
     else:
         return result
 
 
 if __name__ == "__main__":
-    print(min_numeric(l))
-    print(max_numeric(l))
-    print(sum_numeric(l))
-    print(mult_numeric(l))
+    print(min_numeric(read_file()))
+    print(max_numeric(read_file()))
+    print(sum_numeric(read_file()))
+    print(mult_numeric(read_file()))
