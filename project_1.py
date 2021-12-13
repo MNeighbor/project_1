@@ -4,13 +4,13 @@ import typing
 
 # Реализовать чтение данных из файла именно как функцию
 # Функция, читающая файл
-
-
-def read_file():
+# read_file должен принимать имя (путь) файла
+# Функция read_file принимает путь к файлу
+def read_file(name_file):
     # Пустой список куда данные будут заноситься построчно
     l = []
     # Прочитаем исходные данные из файла
-    with open("project_1.txt", encoding="utf8") as f:
+    with open(name_file, encoding="utf8") as f:
         # Чтение данных происходит построчно
         for line in f:
             l.append(line.replace("\n", "").split())
@@ -67,8 +67,9 @@ def sum_numeric(args):
 
 
 # Лучше возвращать Optional[float], нежели строку в случае переполнения
+# Не args: typing.Optional[float] А args: typing.Optional[List[float]]
 @timer
-def mult_numeric(args: typing.Optional[float]):
+def mult_numeric(args: typing.Optional[list[float]]):
     result = 1
     if args == float("inf"):
         return args
@@ -78,14 +79,17 @@ def mult_numeric(args: typing.Optional[float]):
                 result *= float(i)
             except OverflowError:
                 print("Бесконечность!")
-    if result == float("inf"):
-        return result
-    else:
-        return result
+    # if result == float("inf"): return result else: return result И в чем смысл этого условного оператора?
+    # Просто возвращаем результат вычислений без условий
+    return result
 
 
 if __name__ == "__main__":
-    print(min_numeric(read_file()))
-    print(max_numeric(read_file()))
-    print(sum_numeric(read_file()))
-    print(mult_numeric(read_file()))
+    # В функцию read_file передаем путь к файлу
+    # В рамках компьютера путь к файлу будет выглядеть следующим образом, например
+    # print(min_numeric(read_file(r"C:\Users\stars\PythonCourse\project\project_1.txt")))
+    # Для git оставим следующим образом
+    print(min_numeric(read_file(r"project_1.txt")))
+    print(max_numeric(read_file(r"project_1.txt")))
+    print(sum_numeric(read_file(r"project_1.txt")))
+    print(mult_numeric(read_file(r"project_1.txt")))
