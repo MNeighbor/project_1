@@ -31,5 +31,10 @@ class ProjectTest(unittest.TestCase):
         new_value = project_1.mult_numeric(math.inf)
         self.assertEquals(new_value, float("inf"))
 
+    def test_read_file(self):
+        """На чтение подается файл, чтение происходит?"""
+        new_value = project_1.read_file(r"project_1.txt")
+        self.assertEquals(new_value, [['1', '4', '2', '3']])
+
 if __name__ == '__main__':
     unittest.main()
